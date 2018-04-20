@@ -1,0 +1,124 @@
+/*浏览器默认样式清除 start*/
+ul, ol, dd {
+    list-style-type:none;/*清楚列表样式符*/
+    margin-left:0;/*清楚IE左缩进*/
+    padding-left:0;/*清楚非IE左缩进*/
+    -webkit-padding-start: 0;
+    -webkit-margin-before: 0;
+    -webkit-margin-after: 0;
+    -webkit-margin-start: 0;
+    -webkit-margin-end: 0;
+}
+p {
+    margin-top:0;
+    margin-bottom:0;
+    -webkit-margin-before: 0;
+    -webkit-margin-after: 0;
+    -webkit-margin-start: 0;
+    -webkit-margin-end: 0;
+}
+body{
+    margin:0
+}
+/*浏览器默认样式清除 end*/
+/*top-wrapper*/
+body{
+    background: #F0EFF5;
+}
+.top-wrapper,.money-wrapper,.keyboard-wrapper{
+    background: #fff;
+}
+.top-wrapper .pay-logo{
+    text-align: center;
+}
+.top-wrapper .pay-logo .store-logo{
+    width: 60px;
+    height:60px;
+}
+.top-wrapper .pay-store{
+    margin-top:27px;
+    text-align: center;
+    color: #333;
+    font-size: 16px;
+}
+.money-wrapper{
+    padding:12px 10px 0 10px;
+    border-top:1px solid #e8e8e8;
+    color: #333333;
+}
+.money-wrapper .money-title{
+    font-size:18px;
+    margin-bottom:10px;
+}
+
+.money-wrapper .money-flag{
+    float: left;
+}
+.money-wrapper .money-num{
+    float: right;
+}
+
+.money-wrapper .wrapper2{
+    overflow: hidden;
+    font-size: 24px;
+    padding-bottom:10px;
+}
+/*keyboard*/
+.keyboard-wrapper{
+    font-size: 24px;;
+    color: #333333;
+}
+.keyboard-wrapper ul {
+    border-bottom:1px solid #ccc;
+    overflow: hidden;
+}
+.keyboard-wrapper ul li{
+    width:33.3%;
+    float: left;
+
+}
+.keyboard-wrapper ul li .key-item{
+    text-align: center;
+    border-top:1px solid #ccc;
+    height:55px;
+    line-height:55px;
+}
+.keyboard-wrapper ul li .key-item.active{
+    background: #ccc;
+}
+.keyboard-wrapper .num-delete-icon{
+    background:url(../image/num-delete.png) no-repeat;
+    -webkit-background-size:100%;
+    background-size:100%;
+    width: 26px;
+    height:17px;
+    margin: 19px auto;
+}
+.keyboard-wrapper ul li:nth-child(3n+2) .key-item{
+    border-left:1px solid #ccc;
+    border-right:1px solid #ccc;
+}
+.button-wrapper{
+    padding-top:40px;
+    padding-bottom:20px;
+}
+.button-wrapper .confirm-btn{
+    margin:0 auto;
+    background: #1AAD19;
+    border-radius: 4px;
+    font-size: 18px;
+    color: #fff;
+    height:47px;
+    line-height:47px;
+    text-align: center;
+    width:80%;
+}
+.button-wrapper .confirm-btn.disabled{
+    background: #999;
+}
+/**底部弹出层**/
+.bottom-wrapper{
+    position: absolute;
+    bottom:0;
+    width:100%;
+}
