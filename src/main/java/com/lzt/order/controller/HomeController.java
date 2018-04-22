@@ -19,4 +19,9 @@ public class HomeController {
         return view;
     }
 
+    @RequestMapping(value = "order", method = RequestMethod.GET)
+    public ModelAndView order(HttpServletRequest request, HttpServletResponse response){
+        ModelAndView view = new ModelAndView("html/order");
+        return view;
+    }
 }
