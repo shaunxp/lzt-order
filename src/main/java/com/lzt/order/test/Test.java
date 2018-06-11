@@ -9,12 +9,13 @@ public class Test {
 
     public static void main(String a[]){
 
-        for (int i = 0; i < 1; i++){
-            String uuid = getUUID();
-            System.out.println(uuid);
-            String token = getToken();
-            System.out.println(token);
-        }
+        Integer int1 = 1;
+        Integer int2 = 1;
+        Integer int3 = new Integer(1);
+        Integer int4 = new Integer("1");
+        System.out.println(int1 == int2);
+        System.out.println(int1 == int3);
+
 
     }
 
