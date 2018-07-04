@@ -14,10 +14,12 @@ public class OrderServiceImpl implements IOrderServie {
     @Resource
     IOrderDao orderDao;
 
+    @Resource
+    SnowflakeIdWorker idWorker;
+
     @Override
     public int saveOrder() {
         Order order = new Order();
-        SnowflakeIdWorker idWorker = new SnowflakeIdWorker(0, 0);
         long id = idWorker.nextId();
         order.setOrderId(String.valueOf(id));
         return orderDao.insert(order);
