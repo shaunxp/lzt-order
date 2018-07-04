@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "mybatis-3-mapper.dtd" >
+<mapper namespace="com.lzt.order.dao.IOrderDao">
+    <resultMap id="OrderDetail" type="com.lzt.order.domain.Order">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="order_id" property="orderId" jdbcType="VARCHAR"/>
+        <result column="add_time" property="addTime" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <select id="insert" parameterType="com.lzt.order.domain.Order">
+        insert into wk_test(order_id) values(#{orderId})
+    </select>
+</mapper>
