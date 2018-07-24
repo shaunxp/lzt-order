@@ -8,13 +8,15 @@ import redis.clients.jedis.HostAndPort;
 import redis.clients.jedis.JedisCluster;
 import redis.clients.jedis.JedisPoolConfig;
 
+import javax.print.DocFlavor;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.util.LinkedHashSet;
 import java.util.Set;
+import java.util.UUID;
 
 @Configuration
-public class IdWorderConfig {
+public class InitIdWorder {
 
     @Bean
     public SnowflakeIdWorker initIdWorker() {
@@ -30,10 +32,16 @@ public class IdWorderConfig {
         JedisCluster jedisCluster = new JedisCluster(nodes, jedisPoolConfig);
 
         String host = getLocalMac();
+
+
         String workerId = jedisCluster.hget("useridworker", host);
-        try{
+        if (null == workerId){
+            workerId = String.valueOf(jedisCluster.incr("useridworkermax"));
+        }
+        jedisCluster.hset("useridworker", host, workerId);
+        try {
             jedisCluster.close();
-        }catch (Exception e){
+        } catch (Exception e) {
 
         }
 
@@ -66,8 +74,20 @@ public class IdWorderConfig {
         }
     }
 
+    public static String getHost(){
+        try{
+            InetAddress ia = InetAddress.getLocalHost();
+            return ia.getHostAddress();
+        }catch (Exception e){
+            return null;
+        }
+    }
+
+
     public static void main(String args[]) {
-        String host = getLocalMac();
-        System.out.println(host);
+
+//        UUID.randomUUID();
+//        String host = getHost();
+        System.out.println(UUID.randomUUID());
     }
 }

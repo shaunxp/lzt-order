@@ -125,26 +125,24 @@ public class FileIOTest {
 		InputStreamReader isr = new InputStreamReader(fileInputStream);
 		BufferedReader br = new BufferedReader(isr);
 		String lineTxt = null;
-		int count = 0;
 		while ((lineTxt = br.readLine()) != null) {
-			count++;
+			System.out.println(lineTxt);;
 		}
 		br.close();
 		isr.close();
 		fileInputStream.close();
 		long timeend = System.currentTimeMillis();
 		System.out.println(timeend - timestart);
-		System.out.println(count);
 	}
 
 	static void readByBos(File file) throws Exception {
 		long timestart = System.currentTimeMillis();
 	    int offset = 0;
 		BufferedInputStream bos = new BufferedInputStream(new FileInputStream(file));
-	    byte[] buff = new byte[4096];
+	    byte[] buff = new byte[1024];
 	    while((offset= bos.read(buff)) != -1) {
 	    	String test = new String(buff);
-//			System.out.println(test);
+			System.out.println(test);
 	    }
 	    long timeend = System.currentTimeMillis();
 		System.out.println(timeend - timestart);
@@ -162,11 +160,8 @@ public class FileIOTest {
 	}
 
 	public static void main(String args[]) throws Exception {
-		File file = new File("/Users/xupeng/Documents/testdata/iotest/1.txt");
-//		 writeBuffer(file);
-		// mappedByteBuffer(file);
+		File file = new File("/Users/xupeng/Documents/testdata/iotest/208800000000_transaction_20180719.txt");
 		readByBos(file);
-		// test();
 	}
 
 }
