@@ -1,4 +1,4 @@
-package com.lzt.code;
+package com.lzt.code.leetcode;
 
 public class SumTwoNumbers {
 
